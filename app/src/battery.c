@@ -117,7 +117,7 @@ static int zmk_battery_update(const struct device *battery) {
         LOG_DBG("The configured battery sensor does not support the channel: Voltage");
     } else {
         /* append this value to the battery state changed event */
-        bat_state_data.voltage = voltage.val1; /*combine val1" and "val2" here*/
+        bat_state_data.voltage = voltage.val1; /*combine val1 and val2 here*/
         LOG_DBG("-----> battery voltage: %d.%dV", voltage.val1, voltage.val2);
     }
 
@@ -132,7 +132,7 @@ static int zmk_battery_update(const struct device *battery) {
         LOG_DBG("The battery sensor does not support the channel: Average Current");
     } else {
         /* append this value to the battery state changed event */
-        bat_state_data.current = current.val1; /*combine val1" and "val2" here*/
+        bat_state_data.current = current.val1; /*combine val1 and val2 here*/
         LOG_DBG("-----> battery Average Current: %d.%dA", current.val1, current.val2);
     }
 
@@ -147,7 +147,7 @@ static int zmk_battery_update(const struct device *battery) {
         LOG_DBG("The battery sensor does not support the channel: Standby Current");
     } else {
         /* append this value to the battery state changed event */
-        bat_state_data.current_standby = current_standby.val1; /*combine val1" and "val2" here*/
+        bat_state_data.current_standby = current_standby.val1; /*combine val1 and val2 here*/
         LOG_DBG("-----> battery Standby Current: %d.%dA", current_standby.val1,
                 current_standby.val2);
     }
@@ -163,7 +163,7 @@ static int zmk_battery_update(const struct device *battery) {
         LOG_DBG("The battery sensor does not support the channel: Maximum Load Current");
     } else {
         /* append this value to the battery state changed event */
-        bat_state_data.current_max_load = current_max_load.val1; /*combine val1" and "val2" here*/
+        bat_state_data.current_max_load = current_max_load.val1; /*combine val1 and val2 here*/
         LOG_DBG("-----> battery Maximum Load Current: %d.%dA", current_max_load.val1,
                 current_max_load.val2);
     }
@@ -179,7 +179,7 @@ static int zmk_battery_update(const struct device *battery) {
         LOG_DBG("The battery sensor does not support the channel: Full Charge Capacity");
     } else {
         /* append this value to the battery state changed event */
-        bat_state_data.full_charge_capacity = full_charge_capacity.val1; /*combine val1" and "val2" here*/
+        bat_state_data.full_charge_capacity = full_charge_capacity.val1; /*combine val1 and val2 here*/
         LOG_DBG("-----> battery Full Charge Capacity: %d.%dmAh", full_charge_capacity.val1,
                 full_charge_capacity.val2);
     }
@@ -195,7 +195,7 @@ static int zmk_battery_update(const struct device *battery) {
         LOG_DBG("The battery sensor does not support the channel: Remaining Charge Capacity");
     } else {
         /* append this value to the battery state changed event */
-        bat_state_data.remaining_charge_capacity = remaining_charge_capacity.val1; /*combine val1" and "val2" here*/
+        bat_state_data.remaining_charge_capacity = remaining_charge_capacity.val1; /*combine val1 and val2 here*/
         LOG_DBG("-----> battery Remaining Charge Capacity: %d.%dmAh", remaining_charge_capacity.val1,
                 remaining_charge_capacity.val2);
     }
@@ -211,7 +211,7 @@ static int zmk_battery_update(const struct device *battery) {
         LOG_DBG("The battery sensor does not support the channel: Nominal Available Capacity");
     } else {
         /* append this value to the battery state changed event */
-        bat_state_data.nominal_available_capacity = nominal_available_capacity.val1; /*combine val1" and "val2" here*/
+        bat_state_data.nominal_available_capacity = nominal_available_capacity.val1; /*combine val1 and val2 here*/
         LOG_DBG("-----> battery Nominal Available Capacity: %d.%dmAh", nominal_available_capacity.val1,
                 nominal_available_capacity.val2);
     }
@@ -227,7 +227,7 @@ static int zmk_battery_update(const struct device *battery) {
         LOG_DBG("The battery sensor does not support the channel: Full Available Capacity");
     } else {
         /* append this value to the battery state changed event */
-        bat_state_data.full_available_capacity = full_available_capacity.val1; /*combine val1" and "val2" here*/
+        bat_state_data.full_available_capacity = full_available_capacity.val1; /*combine val1 and val2 here*/
         LOG_DBG("-----> battery Full Available Capacity: %d.%dmAh", full_available_capacity.val1,
                 full_available_capacity.val2);
     }
@@ -243,7 +243,7 @@ static int zmk_battery_update(const struct device *battery) {
         LOG_DBG("The battery sensor does not support the channel: Average Power Usage");
     } else {
         /* append this value to the battery state changed event */
-        bat_state_data.avg_power = avg_power.val1; /*combine val1" and "val2" here*/
+        bat_state_data.avg_power = avg_power.val1; /*combine val1 and val2 here*/
         LOG_DBG("-----> battery Average Power Usage: %d.%dmW", avg_power.val1, avg_power.val2);
     }
 
@@ -258,7 +258,7 @@ static int zmk_battery_update(const struct device *battery) {
         LOG_DBG("The battery sensor does not support the channel: Internal IC Temperature");
     } else {
         /* append this value to the battery state changed event */
-        bat_state_data.int_temp = int_temp.val1; /*combine val1" and "val2" here*/
+        bat_state_data.int_temp = int_temp.val1; /*combine val1 and val2 here*/
         LOG_DBG("-----> battery Internal IC Temperature: %d.%d C", int_temp.val1, int_temp.val2);
     }
 
