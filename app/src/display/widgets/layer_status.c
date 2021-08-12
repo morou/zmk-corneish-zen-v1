@@ -67,3 +67,25 @@ int zmk_widget_layer_status_init(struct zmk_widget_layer_status *widget, lv_obj_
 lv_obj_t *zmk_widget_layer_status_obj(struct zmk_widget_layer_status *widget) {
     return widget->obj;
 }
+
+void layer_status_update_cb(struct k_work *work) {
+    struct zmk_widget_layer_status *widget;
+    SYS_SLIST_FOR_EACH_CONTAINER(&widgets, widget, node) { set_layer_symbol(widget->obj); }
+}
+
+K_WORK_DEFINE(layer_status_update_work, layer_status_update_cb);
+
+int layer_status_listener(const zmk_event_t *eh) {
+    k_mutex_lock(&layer_status_mutex, K_FOREVER);
+    layer_status_state.index = zmk_keymap_highest_layer_active();
+    layer_status_state.label = zmk_keymap_layer_label(layer_status_state.index);
+    LOG_DBG("Layer changed to %i", layer_status_state.index);
+
+    k_mutex_unlock(&layer_status_mutex);
+
+    k_work_submit_to_queue(zmk_display_work_q(), &layer_status_update_work);
+    return 0;
+}
+
+ZMK_LISTENER(widget_layer_status, layer_status_listener)
+ZMK_SUBSCRIPTION(widget_layer_status, zmk_layer_state_changed);
