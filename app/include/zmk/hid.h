@@ -99,9 +99,11 @@ static const uint8_t zmk_hid_report_desc[] = {
     /* LOGICAL_MINIMUM (0) */
     HID_GI_LOGICAL_MIN(1),
     0x00,
-    /* LOGICAL_MAXIMUM (0xFF) */
-    HID_GI_LOGICAL_MAX(1),
+    /* LOGICAL_MAXIMUM (0x00FF)  - little endian, and requires two bytes because logical max is
+       signed */
+    HID_GI_LOGICAL_MAX(2),
     0xFF,
+    0x00,
     /* USAGE_MINIMUM (Reserved) */
     HID_LI_USAGE_MIN(1),
     0x00,
